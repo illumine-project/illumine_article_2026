@@ -1,0 +1,77 @@
+%------------------------------------------------------------------------------
+% ILLUMINE author list (IUCr / JSR)
+% Included from main.tex before \begin{document}.
+%
+% How to add someone (one line):
+%   \IllumineAuthor{a}{Given Family}
+%   \IllumineAuthor{a,d}{Given Family}[email@lab.gov]
+%   \IllumineAuthor{a}{Given Family}[email@lab.gov][0000-0000-0000-0000]
+% Corresponding author (blue envelope icon):
+%   \IllumineCorresponding{a}{Given Family}[email@lab.gov][ORCID]
+%
+% Affiliation letters are defined at the bottom. Reuse letters; do not
+% invent a new letter for a second person at the same lab.
+%
+% Starter names = 2023 proposal named Co-Is (LAB 23-3030 cover) plus
+% F. Poitevin for this paper. All Hands speakers are not auto-authors.
+% Order: corresponding first, then by laboratory (proposal order),
+% alphabetical within a lab. Confirm spelling, emails, ORCIDs, and
+% whether 2026 staff who were not Co-Is should be added.
+%------------------------------------------------------------------------------
+
+\NewDocumentCommand{\IllumineAuthor}{m m o o}{%
+  \author[#1]{#2%
+    \IfValueT{#3}{\IUCrEmaillink{#3}}%
+    \IfValueT{#4}{\IUCrOrcidlink{#4}}%
+  }%
+}
+\NewDocumentCommand{\IllumineCorresponding}{m m o o}{%
+  \author[#1]{#2%
+    \IfValueTF{#3}{\IUCrCemaillink{#3}}{\IUCrAufn{Corresponding author.}}%
+    \IfValueT{#4}{\IUCrOrcidlink{#4}}%
+  }%
+}
+
+% --- SLAC / LCLS (a) and SSRL (b) -----------------------------------------
+\IllumineCorresponding{a}{Jana Thayer}[jana@slac.stanford.edu]
+\IllumineAuthor{a}{Ryan Herbst}
+\IllumineAuthor{a}{Fr\'ed\'eric Poitevin}[frederic.poitevin@stanford.edu][0000-0002-3181-8652]
+\IllumineAuthor{a}{Chun Hong Yoon}
+\IllumineAuthor{b}{Vivek Thampy}
+% \IllumineAuthor{b}{Apurva Mehta} % SSRL facility co-lead in management plan; not a named Co-I on the cover
+
+% --- BNL / NSLS-II (d) ----------------------------------------------------
+\IllumineAuthor{d}{Daniel Allan}
+\IllumineAuthor{d}{Andi Barbour}
+\IllumineAuthor{d}{Stuart Campbell}
+\IllumineAuthor{d}{Thomas Caswell}
+\IllumineAuthor{d}{Natalie Isenberg}
+\IllumineAuthor{d}{Phillip Maffettone}
+\IllumineAuthor{d}{Daniel Olds}
+\IllumineAuthor{d}{Max Rakitin}
+\IllumineAuthor{d}{Nathan Urban}
+
+% --- ANL / APS (c) --------------------------------------------------------
+\IllumineAuthor{c}{Franck Cappello}
+\IllumineAuthor{c}{Ian Foster}
+\IllumineAuthor{c}{Antonino Miceli}
+\IllumineAuthor{c}{Nicholas Schwarz}
+
+% --- LBNL / ALS (e) -------------------------------------------------------
+\IllumineAuthor{e}{Alexander Hexemer}
+\IllumineAuthor{e}{Dylan McReynolds}
+
+% --- ORNL / SNS+HFIR (f) --------------------------------------------------
+% Cover page: Jonathon Taylor; budget Co-PI line: Jonathan Taylor.
+\IllumineAuthor{f}{Jonathan Taylor}
+
+% Copy this line for 2026 additions (uncomment and fill):
+% \IllumineAuthor{a}{Given Family}[email][0000-0000-0000-0000]
+
+% --- Affiliations (authblk letters) ---------------------------------------
+\affil[a]{Linac Coherent Light Source, SLAC National Accelerator Laboratory, Menlo Park, CA 94025, USA}
+\affil[b]{Stanford Synchrotron Radiation Lightsource, SLAC National Accelerator Laboratory, Menlo Park, CA 94025, USA}
+\affil[c]{Argonne National Laboratory, Lemont, IL 60439, USA}
+\affil[d]{National Synchrotron Light Source II, Brookhaven National Laboratory, Upton, NY 11973, USA}
+\affil[e]{Advanced Light Source, Lawrence Berkeley National Laboratory, Berkeley, CA 94720, USA}
+\affil[f]{Oak Ridge National Laboratory, Oak Ridge, TN 37831, USA}
