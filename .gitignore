@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# Generated PDF
+main.pdf
+
+# Minted / pygments cache
+_minted*
+
+.vscode/
