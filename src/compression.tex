@@ -41,7 +41,7 @@ In particular, light-source workflows involve heterogeneous instruments, computi
 This makes compression a system-level optimization problem rather than simply a standalone compression-kernel problem: an approach that performs well at one stage may not provide the best overall performance when data must traverse the complete workflow.
 We have also explored learning-assisted compression to exploit redundancy that is difficult for conventional numerical compressors to capture. 
 Light source datasets can exhibit complex correlations across measurements, spatial regions, and time, creating opportunities for learned prediction to reduce the amount of information that must be explicitly encoded. 
-However, these correlations vary considerably across experiments and scientific applications, making it challenging to achieve high prediction accuracy, user-acceptable inference overhead, and reliable reconstruction simultaneously. 
+However, these correlations vary considerably across experiments and scientific applications, making it challenging, even with Transformer models, to achieve high prediction accuracy, user-acceptable inference overhead, and reliable reconstruction simultaneously. 
 Together, these explorations highlight the need to co-design compression algorithms with the characteristics of light source data and the systems through which those data move.
 
 
