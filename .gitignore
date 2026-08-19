@@ -1,10 +1,25 @@
-main.aux
-main.bbl
-main.blg
-main.fdb_latexmk
-main.fls
-main.log
-main.out
+# macOS
+.DS_Store
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# Generated PDF
 main.pdf
-main.bbl
-src/compression.aux
+
+# Minted / pygments cache
+_minted*
+
+.vscode/
