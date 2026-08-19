@@ -1,0 +1,40 @@
+
+\section{Aim 1 --- real-time analysis at the edge and edge-to-HPC}
+\label{sec:aim1}
+
+\textit{Strawman owners: Cappello, with Yoon (calibration, Bragg finder),
+Herbst/Miceli (FPGA), Foster/Schwarz (HPC retraining). $\sim$700 words.}
+
+Aim~1 is the inner loop plus the HPC path that the outer loop still needs.
+Applications named in 2023 were ptychography, crystallography, and tomography,
+with diffraction workflows alongside. Sub-deliverables included ultrafast
+calibration (including a crystallography demonstration); a Bragg-peak finder
+that runs on \emph{uncalibrated} images for FEL, synchrotron, and neutron
+sources, with closed loop at LCLS, APS, and HFIR; transformer-based lossy
+reduction and compact models on FPGAs; file-based and streaming HPC workflows;
+and model re-training with a shared repository.
+
+Edge and FPGA work does not retire HPC, and HPC does not give millisecond
+steering. Both timescales remain in Fig.~\ref{fig:loops}. The section should
+say what is streaming versus file-based, what is on the detector path versus
+after the file, and which science metric (Bragg quality, ptycho reconstruction,
+tomography artifact) the reducer actually sees.
+
+\textit{Placeholders from the August 2026 All Hands, not an outline:} FPGA
+status; compression comparisons; streaming and Tiled. LCLS crystallography
+content belongs here and in Aim~3, not as the whole consortium story. Do not
+quote Run~26 downtime percentages without facility operations.
+
+\subsection{Compression}
+\textit{Strawman owners: Cappello and Underwood $\sim$1200 words. for this subsection}
+
+Why compression for light sources.
+
+What has been explored as part of the Illumine
+
+What is next for this work.
+
+Note Lessons Learned from this
+
+\subsection{Edge Computing}
+
