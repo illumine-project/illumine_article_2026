@@ -48,11 +48,21 @@ In particular, light-source workflows involve heterogeneous instruments, computi
 This makes compression a system-level optimization problem rather than simply a standalone compression-kernel problem: an approach that performs well at one stage may not provide the best overall performance when data must traverse the complete workflow.
 We expect to continue this work in the years to come as we expand our efforts both to additional beamlines and to additional facilities within the project.
 
-
 We have also explored learning-assisted compression to exploit redundancy that is difficult for conventional numerical compressors to capture. 
 Light source datasets can exhibit complex correlations across measurements, spatial regions, and time, creating opportunities for learned prediction to reduce the amount of information that must be explicitly encoded. 
-However, these correlations vary considerably across experiments and scientific applications, making it challenging, even with Transformer models, to achieve high prediction accuracy, user-acceptable inference overhead, and reliable reconstruction simultaneously. 
-Together, these explorations highlight the need to co-design compression algorithms with the characteristics of light source data and the systems through which those data move and are stored.
+One emerging way to exploit this redundency is by leveraging advanced AI models, However, these correlations vary considerably across experiments and scientific applications, making it challenging, even with Transformer models, to achieve high prediction accuracy, user-acceptable inference overhead, and reliable reconstruction simultaneously. 
+Performance especially is a stark challenge:  For example TEZip, a leading AI based compressor, conducted extensive performance optimizations for modern GPUs \cite{nambudiripadDevelopmentTEZipPyTorch}, and with these optimizations it achieves only less than 1\% of the bandwidth of a state of the art CPU based compressor, let alone a GPU based compressor or the line rate of a light source relegating it to offline use for archival storage.
+Together, these explorations highlight the very carefully need to co-design compression algorithms with the characteristics of light source data and the systems through which those data move and are stored.
+
+Another necessary direction beyond the development of compressors is the integration of compressors into the I/O libraries and services used by light sources.
+One such system is Globus Transfer \cite{fosterGlobusMetacomputingInfrastructure1997} allows federated transfer of large datasets across the wide area network.
+In Illumine, we developed an approach that leverages an unprivileged-user-based container engine (e.g. Podman)  to deploy compressors containing compression software in conjunction with Globus Compute to schedule the decompression tasks at the remote endpoint where data is sent.
+This approach make it possible to compressed data to remote sites, and providing the corresponding compressors with the data.
+This enables much more efficient wide area network transfers.
+However, other kinds of integration are also necessary.
+Our team has worked to integrate compression deep into the data reduction pipelines at facilities such as LCLS and APS.
+In this case, the emphasis of the integration is ensuring minimal to no overhead for near real-time operations.
+This produces unique challenges such as co-scheduling kernels for compression with other kernels such as those for calibration, feature detection, and analysis with APIs designed to be used from device functions.
 
 \subsection{Edge Computing}
 
