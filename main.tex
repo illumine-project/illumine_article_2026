@@ -157,32 +157,7 @@ where uncertainty is shown, not only that a scan ran unattended.
 automation; auto phase detection; ROI / BORA; facility-specific decision UIs.
 
 %------------------------------------------------------------------------------
-\section{Aim 3 --- Bluesky steering framework}
-\label{sec:aim3}
-
-\textit{Strawman owners: Campbell, with Allan, Maffettone, Caswell, Rakitin,
-Barbour, Olds. $\sim$500 words.}
-
-Aim~3 is the shared loop, not a new control system. The four steps in the
-proposal are reduce, decide the next action, encode it to controls, and
-collect. Two timescales sit inside that loop: faster than a measurement
-(instrument optimization) and commensurate with a measurement (sequence
-planning). Interoperation was specified with the Queue Server, workflow
-systems, and parameterized similar measurements (for example powder). The UI
-was specified to show the live experiment, agent state, history, queued plans,
-and hyper-parameters \cite{allan2019bluesky}.
-
-Bluesky was the reference implementation \emph{because} pieces can be adopted
-without replacing a beamline. This paper should score that interop claim, not
-assume a single stack won.
-
-The 2023 ``Agents'' are pluggable modules in this pipeline --- local or
-facility/HPC --- that consume reduced data and emit the next measurement or
-control directive. Gaussian-process fly-scan demos at NSLS-II already existed
-when the proposal was written. They are not language models.
-
-\textit{Placeholders:} Bluesky/Tiled status; LCLS MFX photon-beam tuning and
-operator-facing skills as one Aim~3 + Aim~1 crystallography cell.
+\include{src/aim_3}
 
 %------------------------------------------------------------------------------
 \section{Cross-facility evidence}
@@ -298,6 +273,6 @@ Urban / Isenberg; Aim~3 Campbell \textit{et al.}; Table~\ref{tab:m4} one name
 per facility; Fig.~\ref{fig:loops} update owner TBD. CRediT roles to be
 completed with the agreed author list.
 
-\bibliography{references}
+\bibliography{references,src/aim_3_refs}
 
 \end{document}
